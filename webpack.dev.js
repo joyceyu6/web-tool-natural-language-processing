@@ -39,4 +39,6 @@ module.exports = {
             protectWebpackAssets: false
         })
     ]
+  
+
 }
