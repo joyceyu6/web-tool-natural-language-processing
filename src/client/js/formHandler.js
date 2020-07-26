@@ -9,10 +9,14 @@ function handleSubmit(event) {
     console.log("::: Form Submitted :::")
     fetch('http://localhost:3000/test')
     .then(res => {
+        console.log(res);
         return res.json()
     })
     .then(function(data) {
-        document.getElementById('results').innerHTML = data.message
+        console.log(data);
+        console.log(data["titles"]);
+        // document.getElementById('results').innerHTML = data.message
+        document.getElementById('results').innerHTML = data.titles[0];
     })
 }
 

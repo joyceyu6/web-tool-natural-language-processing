@@ -1,7 +1,7 @@
 # Project: Evaluate a News Article with Natural Language Processing
 
 ## Project Description
-Build a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites
+Build a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites - see addtional notes at the end of this document
 
 
 ## Prerequisites
@@ -10,9 +10,11 @@ Build a web tool that allows users to run Natural Language Processing (NLP) on a
 * Build tool - Webpack with dev and prod environments
 * Webpack Loaders - babel, style, CSS, sass, MiniCssExtract
 * Webpack Plugins - HtmlWebPack, CleanWebpack
+* Service Worker
+* Unit Test - Jest
 
 ## How to run the code
-1. Install NPM or upgrade NPM if you already have it installed (`npm-v`)
+1. Install NPM or upgrade NPM if you already have it installed 
 > npm install  
 >npm install -g npm@latest
 
@@ -45,6 +47,7 @@ Build a web tool that allows users to run Natural Language Processing (NLP) on a
 <!-- >npm install workbox-webpack-plugin --save-dev -->
 
 
+
 3. Run development environment of the Application
 >npm run build-dev
 >
@@ -58,14 +61,28 @@ Make sure to open a second terminal and start Node server by running the below c
 
 5. Check the website running at http://localhost:8080/
 
-## Summary of configurations made
+
 
 ## List of third-party resources
 * [Webpack course](www.udacity.com) from Udacity
 
 ## Addtional notes
+### Aylien API
+Aylien has disabled new account creation for the Text Analysis API, here we are using News API to analyzie aggregate trends across news coverage
 
+### Other tools installed during development
+* Dotenv package - allows us to use environment variables set in a new file
+>npm install dotenv 
+>
 
+* Install Aylien library
+
+Install 4.0.0 version as the newest version has bug
+>
+>npm install aylien-news-api@4.0.0 
+>
+
+<!-- >npm install AYLIEN/aylien_newsapi_nodejs -->
 
 # Markdown:
 **Important:**
