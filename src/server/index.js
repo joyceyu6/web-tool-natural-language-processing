@@ -22,45 +22,14 @@ app_key.apiKey = process.env.API_KEY;
 //     application_key: process.env.API_KEY
 //  }); 
 
- var api = new AylienNewsApi.DefaultApi();
-
-var opts = {
-  title: "trump",
-  sortBy: "social_shares_count.facebook",
-  notLanguage: ["en"],
-  publishedAtStart: "NOW-7DAYS",
-  publishedAtEnd: "NOW",
-  entitiesBodyLinksDbpedia: [
-    "http://dbpedia.org/resource/Donald_Trump",
-    "http://dbpedia.org/resource/Hillary_Rodham_Clinton"
-  ]
-};
+var api = new AylienNewsApi.DefaultApi();
+//var api = new AylienNewsApi.DefaultApi(defaultClient);
 
 
-var allData = {
-    titles: [], 
-    sources:[],
-    };
-// var resData = "";
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    
-    console.log("API called successfully. Returned data: ");
-    console.log("========================================");
-    for (var i = 0; i < data.stories.length; i++) {
-        allData.titles.push(data.stories[i].title);
-        allData.sources.push(data.stories[i].source);  
-        
-        console.log(data.stories[i].title + " / " + data.stories[i].source.name);
-    }
-    // resData = JSON.stringify(allData);
-  }
-}
 
 
-api.listStories(opts, callback);
+
+
 
 
 
@@ -92,7 +61,48 @@ app.get('/', function (req, res) {
 // })
 
 app.get('/test', function (req, res) {
-    res.json(allData);
+    console.log(req.query.name);
+    console.log(req.query);
+
+    var opts = {
+        title: req.query.name,
+        sortBy: "social_shares_count.facebook",
+      //   notLanguage: ["en"],
+        publishedAtStart: "NOW-7DAYS",
+        publishedAtEnd: "NOW",
+      //   entitiesBodyLinksDbpedia: [
+      //     "http://dbpedia.org/resource/Donald_Trump",
+      //     "http://dbpedia.org/resource/Hillary_Rodham_Clinton"
+      //   ]
+    };
+    
+
+    var allData = {
+        titles: [], 
+        sources:[],
+        };
+
+var callback = function(error, data, response) {
+    if (error) {
+      console.error(error);
+    } else {
+      
+      console.log("API called successfully. Returned data: ");
+      console.log("========================================");
+      for (var i = 0; i < data.stories.length; i++) {
+          allData.titles.push(data.stories[i].title);
+          allData.sources.push(data.stories[i].source);  
+          
+          console.log(data.stories[i].title + " / " + data.stories[i].source.name);
+      }
+      res.json(allData);
+  
+    }
+  }
+
+    api.listStories(opts, callback);
+
+   
 })
 
 

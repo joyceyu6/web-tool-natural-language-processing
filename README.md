@@ -9,41 +9,39 @@ Build a web tool that allows users to run Natural Language Processing (NLP) on a
 * Web application framework for routing - Express
 * Build tool - Webpack with dev and prod environments
 * Webpack Loaders - babel, style, CSS, sass, MiniCssExtract
-* Webpack Plugins - HtmlWebPack, CleanWebpack
+* Webpack Plugins - HtmlWebPack, CleanWebpack,OptimizeCssWebPack, TerserWebpack
 * Service Worker
 * Unit Test - Jest
 
 ## How to run the code
 1. Install NPM or upgrade NPM if you already have it installed 
-> npm install  
->npm install -g npm@latest
+        
+        npm install  
+        npm install -g npm@latest
 
 2. Install Node package
->npm install express
->
->npm install body-parser
->
->npm install cors
+
+        npm install express
+        npm install body-parser
+        npm install cors
 
 3. Install webpack and the command line instructions (CLI) tool using npm
-> npm i webpack webpack-cli
+
+        npm i webpack webpack-cli
 
 4. Install Webpack Dev Server
->npm i -D webpack-dev-server
+    
+        npm i -D webpack-dev-server
 
 5. Install loaders and plugins
->npm i -D @babel/core @babel/preset-env babel-loader
->
->npm i -D style-loader node-sass css-loader sass-loader
->
->npm i -D clean-webpack-plugin
->
->npm i -D html-webpack-plugin
->
->npm i -D mini-css-extract-plugin
->
->npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
->
+
+        npm i -D @babel/core @babel/preset-env babel-loader
+        npm i -D style-loader node-sass css-loader sass-loader
+        npm i -D clean-webpack-plugin
+        npm i -D html-webpack-plugin
+        npm i -D mini-css-extract-plugin
+        npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
+
 <!-- >npm install workbox-webpack-plugin --save-dev -->
 
 
@@ -62,75 +60,32 @@ Make sure to open a second terminal and start Node server by running the below c
 5. Check the website running at http://localhost:8080/
 
 
+## Other tools installed during development
+* dotenv package 
 
-## List of third-party resources
-* [Webpack course](www.udacity.com) from Udacity
-
-## Addtional notes
-### Aylien API
-Aylien has disabled new account creation for the Text Analysis API, here we are using News API to analyzie aggregate trends across news coverage
-
-### Other tools installed during development
-* Dotenv package - allows us to use environment variables set in a new file
+It allows us to use environment variables set in a new file
 >npm install dotenv 
 >
+After installing dotenv, a `.env` file was created in the root of the project but added to .gitignore, in which I saved my develper ID/Key from Aylien as:
 
-* Install Aylien library
+    API_ID=********
+    API_KEY=********************************
 
-Install 4.0.0 version as the newest version has bug
+* Aylien library
+
+Install 4.0.0 version - this is an older version as the newest one has bug
 >
 >npm install aylien-news-api@4.0.0 
 >
 
 <!-- >npm install AYLIEN/aylien_newsapi_nodejs -->
 
-# Markdown:
-**Important:**
+## List of third-party resources
+* [Webpack course](www.udacity.com) from Udacity
 
-*Italic*
-
-***Bold and Italic***
-# Blockquote
->blockquote
->
->blockquote with multiple paragraphs
->> Nested Blockquotes
-
-# Ordered List
-1. ordered list
-2. ordered list
-
-# Unordered Listed
-- Unordered Lists
-    - unordered lists
-
-# Code
-`code`
-
-# Code Block
-To create code blocks, indent every line of the block by at least four spaces or one tab:
-
-    <html>
-        <head>
-            <title>Test</title>
-        <head>
-
-
-# Link
-the link is [search engine](www.google.com)
-
-# URLs and Email Addresses
-To quickly turn a URL or email address into a link, enclose it in angle brackets.
-    
-    <https://www.markdownguide.org>
-    
-    <fake@example.com>
-
-        
-
-
-
-
+## **Important Notes**
+* Install 4.0.0 version - this is an older version as the newest one has bug
+* `aylien_textapi` was disabled, I used `aylien-news-api` instead
 
 
 
