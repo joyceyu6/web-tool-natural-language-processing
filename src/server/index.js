@@ -7,37 +7,16 @@ const dotenv = require('dotenv');
 dotenv.config()
 
 var AylienNewsApi = require("aylien-news-api");
+
 var defaultClient = AylienNewsApi.ApiClient.instance;
 
 var app_id = defaultClient.authentications["app_id"];
-// app_id.apiKey = process.env["NEWSAPI_APP_ID"];
 app_id.apiKey = process.env.API_ID;
 
 var app_key = defaultClient.authentications["app_key"];
-// app_key.apiKey = process.env["NEWSAPI_APP_KEY"];
 app_key.apiKey = process.env.API_KEY;
 
-// var aylienapi = new aylien({
-//     application_id: process.env.API_ID,
-//     application_key: process.env.API_KEY
-//  }); 
-
 var api = new AylienNewsApi.DefaultApi();
-//var api = new AylienNewsApi.DefaultApi(defaultClient);
-
-
-
-
-
-
-
-
-
-// var json = {
-//     'title': 'test json response',
-//     'message': 'this is a message',
-//     'time': 'now'
-// }
 
 const app = express()
 app.use(cors())
@@ -61,9 +40,8 @@ app.get('/', function (req, res) {
 // })
 
 app.get('/test', function (req, res) {
-    console.log(req.query.name);
-    console.log(req.query);
-
+    // console.log(req.query.name);
+    // console.log(req.query);
     var opts = {
         title: req.query.name,
         sortBy: "social_shares_count.facebook",
@@ -80,25 +58,32 @@ app.get('/test', function (req, res) {
     var allData = {
         titles: [], 
         sources:[],
-        };
+        mostpopular:[]
+    };
 
-var callback = function(error, data, response) {
-    if (error) {
-      console.error(error);
-    } else {
-      
-      console.log("API called successfully. Returned data: ");
-      console.log("========================================");
-      for (var i = 0; i < data.stories.length; i++) {
-          allData.titles.push(data.stories[i].title);
-          allData.sources.push(data.stories[i].source);  
+    var callback = function(error, data, response) {
+        if (error) {
+          console.error(error);
+        } else {
           
-          console.log(data.stories[i].title + " / " + data.stories[i].source.name);
+          // console.log("API called successfully. Returned data: ");
+          // console.log("========================================");
+          for (var i = 0; i < data.stories.length; i++) {
+            if (i == 0){
+              allData.mostpopular.push(
+                data.stories[i].title + " / " + data.stories[i].source.name
+              );
+            }
+              
+            allData.titles.push(data.stories[i].title);
+            allData.sources.push(data.stories[i].source.name);  
+              
+              // console.log(data.stories[i].title + " / " + data.stories[i].source.name);
+          }
+          res.json(allData.mostpopular);
+      
+        }
       }
-      res.json(allData);
-  
-    }
-  }
 
     api.listStories(opts, callback);
 

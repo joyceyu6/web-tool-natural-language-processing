@@ -5,7 +5,7 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
 
     if (!Client.checkForName(formText)){
-        alert("this is not a president");
+        alert("This is not a U.S. President since 1980");
         return;
     }
           
@@ -17,7 +17,7 @@ function handleSubmit(event) {
     })
     .then(function(data) {        
         // document.getElementById('results').innerHTML = data.message
-        document.getElementById('results').innerHTML = data.titles;
+        document.getElementById('results').innerHTML = data[0];
     })
 }
 

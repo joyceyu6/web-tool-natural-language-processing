@@ -25,13 +25,14 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <!-- <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="President's Last Name"> -->
+                    <input id="name" type="text" name="input" value="" placeholder="Input a Current or Past U.S. President's Last Name Since 1980">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Form Results:</strong>
+                <strong>Most Popular News within 7 Days:</strong>
                 <div id="results"></div>
             </section>
         </main>
@@ -40,7 +41,7 @@
             <p>This is a footer</p>
         </footer>
 
-        <!-- <script>
+        <script>
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
                 // Use the window load event to keep the page load performant
@@ -48,6 +49,6 @@
                     navigator.serviceWorker.register('/service-worker.js');
                 });
             }
-        </script> -->
+        </script>
     </body>
 </html>
