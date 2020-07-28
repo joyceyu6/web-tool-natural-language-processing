@@ -106,7 +106,7 @@ Install 4.0.0 version - this is an older version as the newest one has bug
 
 
 ## List of Third-party Resources
-* [Webpack courses](www.udacity.com) from Udacity
+* [Webpack courses](https://www.udacity.com/) from Udacity
 
 ## Addtional Notes
 * Install 4.0.0 version - this is an older version as the newest one has bug
