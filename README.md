@@ -52,7 +52,7 @@
 
         npm install --save-dev jest
 
-## Run the code
+## Run the Code
 1. How to run development environment of the Application
 
 * Open one terminal and run below code
@@ -86,7 +86,7 @@
 
 
 
-## Other tools installed during development
+## Other Tools Installed During Development
 * dotenv package - it allows us to use environment variables set in a new file
 
         npm install dotenv 
@@ -105,7 +105,7 @@ Install 4.0.0 version - this is an older version as the newest one has bug
 
 
 
-## List of third-party resources
+## List of Third-party Resources
 * [Webpack courses](www.udacity.com) from Udacity
 
 ## Addtional Notes
